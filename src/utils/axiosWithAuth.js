@@ -6,7 +6,7 @@ export const axiosWithAuth = () => {
     return axios.create({
         baseURL: 'https://frontendtest.rivet.work/api/v1/',
         headers: {
-            Authorization: token
+            token: token
         }
     });
 };

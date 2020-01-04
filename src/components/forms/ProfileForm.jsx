@@ -6,8 +6,6 @@ import './forms.scss';
 
 export default function ProfileForm (props) {
 
-  // console.log("props from EventForm", props)
-
   let buttonText
   if (props.type === "add") {
     buttonText = "Create"
@@ -79,7 +77,7 @@ export default function ProfileForm (props) {
                   name="first_name"
                 />
               </div>
-              <div className="field">
+              <div className="field error_margin_mobile">
                 <Field
                   className="input"
                   component="input"
@@ -196,7 +194,7 @@ export default function ProfileForm (props) {
                   name="state"
                 />
               </div>
-              <div className="field">
+              <div className="field error_margin_mobile">
                 <Field
                   className="input"
                   component="input"
@@ -257,7 +255,7 @@ export default function ProfileForm (props) {
           </div>
 
           {/* Form controls */}
-          <div className="field is-horizontal">
+          <div className="field is-horizontal error_margin">
             <div className="field-label" />
             <div className="field-body">
               <div className="field">

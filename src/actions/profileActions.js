@@ -46,7 +46,7 @@ export const postProfile = (newProfile) => dispatch => {
       dispatch({ type: PROFILE_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      // console.log("I'm an error for postProfile", err);
+      console.log("I'm an error for postProfile", err);
       dispatch({ type: PROFILE_FAIL, payload: err.data })
     });
 };

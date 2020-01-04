@@ -6,11 +6,13 @@ import './forms.scss';
 
 export default function ProfileForm (props) {
 
+  const { formType, submitAction, profile } = props;
+
   let buttonText
-  if (props.type === "add") {
-    buttonText = "Create"
-  } else if (props.type === "edit") {
-    buttonText = "Update"
+  if (formType === "edit") {
+    buttonText = "Update Profile"
+  } else {
+    buttonText = "Create Profile"
   }
 
   return (
@@ -41,15 +43,8 @@ export default function ProfileForm (props) {
         }
       }}
       onSubmit={(values, actions) => {
-        // console.log("user input for new event", { 
-        //     title: values.title, 
-        //     date: `${values.date}`,
-        //     time: `${values.date}`,
-        //     location: values.location,
-        //     description: values.description,
-        //     link: values.link,
-        //     image: values.image, });
-        // props.action(values)
+        console.log("user input for new event", values);
+        submitAction(values)
         actions.setSubmitting(false);
       }}
     >
@@ -57,7 +52,7 @@ export default function ProfileForm (props) {
       {({ touched, errors, isSubmitting, setFieldValue }) => (
 
         <Form className="form_container">
-          {console.log("error from inside Form", errors)}
+
           {/* Name entry fields, two fields total */}
           <div className="field is-horizontal">
             <div className="field-label">
@@ -198,7 +193,7 @@ export default function ProfileForm (props) {
                 <Field
                   className="input"
                   component="input"
-                  name="div" 
+                  name="zip" 
                   placeholder="Zip Code"
                 />
                 <ErrorMessage
@@ -261,7 +256,7 @@ export default function ProfileForm (props) {
               <div className="field">
                 <div className="control">
                   <button className="button is-link" type="submit">
-                    Create Profile
+                    {buttonText}
                   </button>
                 </div>
               </div>

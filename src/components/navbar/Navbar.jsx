@@ -58,6 +58,14 @@ export default function Navbar() {
               Profile List
             </button>
           </Link>
+          <Link className='navbar-item' to="/profile/new">
+            <button
+              className='has-text-weight-bold is-size-5'
+              onClick={() => navClickHandler(false)}
+            >
+              Add Employee
+            </button>
+          </Link>
         </div>
       </div>
     </nav>

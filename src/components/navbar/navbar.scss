@@ -1,0 +1,21 @@
+@import '../../styles/_variables.scss';
+@import '~bulma/sass/utilities/_all.sass';
+
+.navigation {
+  // padding: $navbar-padding-vertical $bodyPaddingX-hd;
+  height: $navbar-height;
+  border-bottom: 2px solid $black-bis;
+  margin-top: 0 !important;
+
+  .navbar-logo {
+    object-fit: contain;
+    height: $navbar-height;
+  }
+
+  button {
+    border: 0;
+    border-radius: $radius;
+    background: none;
+    position: relative;
+  }
+}

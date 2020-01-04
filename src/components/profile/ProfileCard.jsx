@@ -11,7 +11,7 @@ export default function ProfileCard(props) {
     <Link className="link" to={{pathname: `profile/${profile.id}`}} >      
       <div className='columns is-centered is-mobile'>
         <img
-          src={profile.photo}
+          src={profile.photo ? profile.photo : "https://www.rivet.work/wp-content/uploads/2019/10/Rivet_Logo_UnionBlue-300x138.png"}
           className={'column is-narrow profile_image'}
         />
         <div className={'column is-narrow profile_details'}>

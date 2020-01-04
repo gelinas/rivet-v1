@@ -11,6 +11,8 @@
 }
 
 .profile_image {
+  object-fit: contain;
+  border-radius: $radius-small;
   width: 174px;
   height: 174px;
 
@@ -23,15 +25,11 @@
     width: 124px;
     height: 124px;
   }
-
-  object-fit: contain;
-  border-radius: $radius-small;
 }
 
 .profile_details {
   border-bottom: 1px solid $grey-lighter;
   width: 205px;
-
 
   @media screen and (max-width: 768px) { 
     width: 175px;

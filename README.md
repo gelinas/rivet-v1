@@ -10,13 +10,13 @@ The frontend codebase is built with React using Redux and the reducer pattern fo
 
 The frontend is styled with the [Bulma](https://bulma.io/) CSS framework and animated with [React-Spring](https://www.react-spring.io/) animation library to minimize bundle size and maximize developer options for future styling decisions.
 
-Bulma is compiled with a node-sass developer dependency to allow the customization of theme variable and injection of custom classes. 
+Bulma is compiled with a node-sass developer dependency to allow the customization of theme variables and the injection of custom classes. 
 
-Variables and global styles are defined in the `/src/styles` directory. 
+Variables are defined in the `/src/styles` directory. Global classes or styles are defined in `/src/App.scss`. 
 
-Component specific files are contain within a `.scss` file in their respective component directory
+Component specific files are contained within a `.scss` file in their respective component directory
 
-Hyphenated classes such as `is-size-6` in the React components are bulma native classes. Underscored classes such as `spinner_center` are custom classes built for this application.
+Hyphenated classes such as `is-size-6` in the React components are bulma native CSS classes and are documented in the [Bulma Documentation](https://bulma.io/documentation/). Underscored classes such as `spinner_center` are custom CSS classes built for this application.
 
 ### Forms
 

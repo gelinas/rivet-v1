@@ -6,10 +6,13 @@ $orange: #df5d43;
 $orange-dark: #ca553e;
 $chalice: #acaaaa;
 $shark: #21242c;
+$faint-grey: #dbdbdb;
 
 $primary: $blue;
+$secondary: $orange;
 $link: $orange;
-$link_hover: lightGrey;
+$link_hover: $faint-grey;
+$input-focus-border-color: $blue;
 
 //============= Spacing And Layout=============
 $bodyPaddingX-hd: 2rem;
@@ -31,3 +34,14 @@ $input-shadow: none;
 //============ Typography ===========
 $family-primary: 'Roboto', sans-serif;
 $family-sans-serif: 'Roboto', sans-serif;
+
+
+// add global mixins
+
+@mixin flex-style($direction, $wrap, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-items: $align;
+}

@@ -4,7 +4,7 @@ import React from 'react';
 import ProfileList from './components/profile/ProfileList'
 
 // styles
-import './App.css';
+import './App.scss';
 
 export default function App() {
   return (

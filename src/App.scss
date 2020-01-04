@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+// import font
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+// update bulma's global variables
+@import './styles/_normalize.scss';
+@import '../node_modules/bulma/sass/base/minireset.sass';
+@import './styles/_custom_reset.scss';
+@import './styles/_variables.scss';
+
+// add global classes
+
+.color_chalice {
+  color: $chalice;
+}
+
+.color_shark {
+  color: $shark;
+}
+
+// import components and classes from bulma
+@import '../node_modules/bulma/sass/utilities/_all.sass';
+@import '../node_modules/bulma/sass/base/generic.sass';
+@import '../node_modules/bulma/sass/base/helpers.sass';
+@import '../node_modules/bulma/sass/elements/_all.sass';
+@import '../node_modules/bulma/sass/components/_all.sass';
+@import '../node_modules/bulma/sass/form/_all.sass';
+@import '../node_modules/bulma/sass/grid/_all.sass';
+@import '../node_modules/bulma/sass/layout/_all.sass';

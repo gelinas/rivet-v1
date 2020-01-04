@@ -9,6 +9,7 @@ import ProfileCard from './ProfileCard'
 
 // styles
 import Loader from 'react-loader-spinner'
+import './profile.scss'
 
 
 function ProfileList(props) {
@@ -29,12 +30,12 @@ function ProfileList(props) {
   // render profile list once fetching is successful
   return (
     <section className='section'>
-      <div className='columns is-multiline'>
+      <div className='columns is-multiline is-centered'>
 
         {/* map over profileList to render profile cards */}
 
         {profileState.profileList.map(profile => (
-          <div key={profile.id} className='column is-full'>
+          <div key={profile.id} className='column is-narrow'>
             <ProfileCard profile={profile} />
           </div>
         ))}

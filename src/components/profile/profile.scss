@@ -1,0 +1,43 @@
+@import '../../styles/_variables.scss';
+@import '~bulma/sass/utilities/_all.sass';
+
+.link {
+  all: unset;
+  color: black;
+  :hover {
+    background-color: $link_hover;
+    color: black;
+  }
+}
+
+.profile_image {
+  width: 174px;
+  height: 174px;
+
+  @media screen and (max-width: 768px) { 
+    width: 154px;
+    height: 154px;
+  }
+
+  @media screen and (max-width: 400px) { 
+    width: 124px;
+    height: 124px;
+  }
+
+  object-fit: contain;
+  border-radius: $radius-small;
+}
+
+.profile_details {
+  border-bottom: 1px solid $grey-lighter;
+  width: 205px;
+
+
+  @media screen and (max-width: 768px) { 
+    width: 175px;
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 145px;
+  }
+}

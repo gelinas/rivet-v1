@@ -1,0 +1,32 @@
+//============= Palette =============
+
+// set rivet brand colors
+$blue: #032245;
+$orange: #df5d43;
+$orange-dark: #ca553e;
+$chalice: #acaaaa;
+$shark: #21242c;
+
+$primary: $blue;
+$link: $orange;
+$link_hover: lightGrey;
+
+//============= Spacing And Layout=============
+$bodyPaddingX-hd: 2rem;
+$navbar-height: 72px;
+$navbar-padding-vertical: 10px;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+
+
+//============= Borders =============
+$radius-small: 2px;
+$radius: 6px;
+$radius-large: 10px;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+//============ Typography ===========
+$family-primary: 'Roboto', sans-serif;
+$family-sans-serif: 'Roboto', sans-serif;

@@ -12,6 +12,22 @@ const initialState = {
 
 export const profileReducer = (state = initialState, action) => {
     switch(action.type){
+        case a.GET_PROFILE_LIST_START:
+            return {
+                ...state,
+                isFetching: true,
+                isSuccessful: false,
+                isError: false,
+                error: ''
+            }
+        case a.GET_PROFILE_LIST_SUCCESS:
+            return {
+                ...state,
+                profileList: action.payload,
+                isFetching: false,
+                isError: false,
+                error: ''
+            }
         case a.GET_PROFILE_START:
             return {
                 ...state,
@@ -23,7 +39,7 @@ export const profileReducer = (state = initialState, action) => {
         case a.GET_PROFILE_SUCCESS:
             return {
                 ...state,
-                profileList: action.payload,
+                profile: action.payload,
                 isFetching: false,
                 isError: false,
                 error: ''

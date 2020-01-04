@@ -24,9 +24,15 @@ function ProfileList(props) {
   // render loading spinner during fetching
   if (profileState.isFetching) {
     return ( 
-        <Loader type="Bars" color="#032245" height={80} width={80} />
-      )
-    }
+      <Loader 
+        className="center_spinner"
+        type="Bars" 
+        color="#032245" 
+        height={80} 
+        width={80} 
+      />
+    )
+  }
   
   // render profile list once fetching is successful
   return (

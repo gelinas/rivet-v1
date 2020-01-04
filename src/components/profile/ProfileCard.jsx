@@ -11,6 +11,7 @@ export default function ProfileCard(props) {
       <img
         src={profile.photo ? profile.photo : "https://www.rivet.work/wp-content/uploads/2019/10/Rivet_Logo_UnionBlue-300x138.png"}
         className={'column is-narrow profile_image'}
+        alt={`${profile.first_name} ${profile.last_name}`}
       />
       <div className={'column is-narrow profile_details'}>
         <p className='is-size-5 is-size-6-mobile has-text-weight-bold'>

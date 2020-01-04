@@ -1,6 +1,8 @@
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 // profile fetch action types
+export const GET_PROFILE_LIST_START = "GET_PROFILE_LIST_START";
+export const GET_PROFILE_LIST_SUCCESS = "GET_PROFILE_LIST_SUCCESS";
 export const GET_PROFILE_START = "GET_PROFILE_START";
 export const GET_PROFILE_SUCCESS = "GET_PROFILE_SUCCESS";
 
@@ -14,9 +16,20 @@ export const PROFILE_FAIL = "PROFILE_FAIL";
 
 // action creators
 export const getProfileList = () => dispatch => {
-  dispatch({ type: GET_PROFILE_START });
+  dispatch({ type: GET_PROFILE_LIST_START });
   axiosWithAuth()
     .get(`/profiles`)
+    .then(res => {
+      dispatch({ type: GET_PROFILE_LIST_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({ type: PROFILE_FAIL, payload: err.data })
+    });
+};
+export const getProfile = (id) => dispatch => {
+  dispatch({ type: GET_PROFILE_START });
+  axiosWithAuth()
+    .get(`/profile/${id}`)
     .then(res => {
       dispatch({ type: GET_PROFILE_SUCCESS, payload: res.data });
     })

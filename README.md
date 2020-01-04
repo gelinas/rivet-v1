@@ -6,7 +6,19 @@ A single page web application for viewing, adding, and updating employee informa
 
 The frontend codebase is built with React using Redux and the reducer pattern for state management. Development builds give you access to Redux logging and development tools for tracking the dispatching and resolution of actions.
 
+### Styles
+
 The frontend is styled with the [Bulma](https://bulma.io/) CSS framework and animated with [React-Spring](https://www.react-spring.io/) animation library to minimize bundle size and maximize developer options for future styling decisions.
+
+Bulma is compiled with a node-sass developer dependency to allow the customization of theme variable and injection of custom classes. 
+
+Variables and global styles are defined in the `/src/styles` directory. 
+
+Component specific files are contain within a `.scss` file in their respective component directory
+
+Hyphenated classes such as `is-size-6` in the React components are bulma native classes. Underscored classes such as `spinner_center` are custom classes built for this application.
+
+### Forms
 
 Form state for adding and editing profiles is managed by the [Formik](https://formik.com/) library and validated with [Yup](https://github.com/jquense/yup).
 

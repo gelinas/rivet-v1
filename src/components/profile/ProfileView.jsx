@@ -1,4 +1,5 @@
 import React, { useEffect} from 'react';
+import { Link } from 'react-router-dom';
 
 // redux
 import { connect } from 'react-redux';
@@ -56,6 +57,15 @@ function ProfileView(props) {
           <p className='is-size-6 is-size-7-mobile'>
             {profile.notes ? profile.notes : 'None currently on file'}
           </p>
+        </div>
+
+        {/* edit employee profile */}
+        <div className='column is-narrow'>
+          <Link to={`/profile/${id}/update`}>
+            <button className="button is-link" type="submit">
+              Update Employee Profile
+            </button>
+          </Link>
         </div>
 
       </div>

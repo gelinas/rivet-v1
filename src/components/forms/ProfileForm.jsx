@@ -19,22 +19,37 @@ export default function ProfileForm (props) {
     <>
 
     <Formik
+      // form initializes existing values for edits or failed submissions
       initialValues={
-        props.values 
-          ?  props.values
-          : { 
-              first_name: "", 
-              last_name: "", 
-              phone: "", 
-              email: "", 
-              address: "", 
-              city: "", 
-              state: "", 
-              zip: "", 
-              photo: "",
-              notes: ""
-            }
+        profile ?
+          { 
+            first_name: profile.first_name || "", 
+            last_name: profile.last_name || "", 
+            phone: profile.phone || "", 
+            email: profile.email || "", 
+            address: profile.address || "", 
+            city: profile.city || "", 
+            state: profile.state || "", 
+            zip: profile.zip || "", 
+            photo: profile.photo || "",
+            notes: profile.notes || ""
+          } :
+          { 
+            first_name: "", 
+            last_name: "", 
+            phone: "", 
+            email: "", 
+            address: "", 
+            city: "", 
+            state: "", 
+            zip: "", 
+            photo: "",
+            notes: ""
+          }
+
       }
+
+      // validation schema for form
       validate={values => {
         let errors = {};
         if (values.first_name.length < 3) {
@@ -42,8 +57,9 @@ export default function ProfileForm (props) {
         return errors
         }
       }}
+
+      // submitAction (update or post) is passed from parent
       onSubmit={(values, actions) => {
-        console.log("user input for new event", values);
         submitAction(values)
         actions.setSubmitting(false);
       }}
@@ -249,7 +265,7 @@ export default function ProfileForm (props) {
             </div>
           </div>
 
-          {/* Form controls */}
+          {/* Submit button text is determined by type of form (add or update) */}
           <div className="field is-horizontal error_margin">
             <div className="field-label" />
             <div className="field-body">

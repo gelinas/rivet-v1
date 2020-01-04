@@ -23,7 +23,7 @@ export const getProfileList = () => dispatch => {
       dispatch({ type: GET_PROFILE_LIST_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      dispatch({ type: PROFILE_FAIL, payload: err.data })
+      dispatch({ type: PROFILE_FAIL, payload: err })
     });
 };
 export const getProfile = (id) => dispatch => {
@@ -34,7 +34,7 @@ export const getProfile = (id) => dispatch => {
       dispatch({ type: GET_PROFILE_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      dispatch({ type: PROFILE_FAIL, payload: err.data })
+      dispatch({ type: PROFILE_FAIL, payload: err })
     });
 };
 
@@ -46,8 +46,7 @@ export const postProfile = (newProfile) => dispatch => {
       dispatch({ type: PROFILE_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      console.log("I'm an error for postProfile", err);
-      dispatch({ type: PROFILE_FAIL, payload: err.data })
+      dispatch({ type: PROFILE_FAIL, payload: err })
     });
 };
 
@@ -59,6 +58,6 @@ export const updateProfile = (editedProfile) => dispatch => {
       dispatch({ type: PROFILE_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      dispatch({ type: PROFILE_FAIL, payload: err.data })
+      dispatch({ type: PROFILE_FAIL, payload: err })
     });
 };

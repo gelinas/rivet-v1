@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import ReactDOM from "react-dom";
 import { Link } from 'react-router-dom';
 
 //styles
@@ -29,7 +28,11 @@ export default function Navbar() {
       <div className='navbar-brand'>
 
         {/* display navbar logo on mobile and desktop */}
-        <img className='navbar-logo' src="https://www.rivet.work/wp-content/uploads/2019/10/Rivet_Logo_UnionBlue-300x138.png" />
+        <img 
+          className='navbar-logo' 
+          src="https://www.rivet.work/wp-content/uploads/2019/10/Rivet_Logo_UnionBlue-300x138.png"
+          alt="rivet logo"
+        />
 
         {/* display navbar hamburger menu on mobile only */}
         <div 
@@ -47,9 +50,10 @@ export default function Navbar() {
       {/* menu displayed on far right in desktop, and hidden dropdown on mobile */}
       <div ref={menuEl} className='navbar-menu'>
         <div className='navbar-end'>
-          <Link className='navbar-item' to="/">
+          <Link className='navbar-item' to="/profiles">
             <button
               className='has-text-weight-bold is-size-5'
+              onClick={() => navClickHandler(false)}
             >
               Profile List
             </button>

@@ -24,7 +24,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className='navigation navbar has-background-white is-fixed-top'
+      className='navbar has-background-white is-fixed-top'
     >
       <div className='navbar-brand'>
 
@@ -32,8 +32,7 @@ export default function Navbar() {
         <img className='navbar-logo' src="https://www.rivet.work/wp-content/uploads/2019/10/Rivet_Logo_UnionBlue-300x138.png" />
 
         {/* display navbar hamburger menu on mobile only */}
-        <a 
-          role="button"
+        <div 
           className="navbar-burger"
           aria-label="menu" 
           onClick={() => navClickHandler()}
@@ -41,7 +40,7 @@ export default function Navbar() {
           <span></span>
           <span></span>
           <span></span>
-        </a>
+        </div>
 
       </div>
 

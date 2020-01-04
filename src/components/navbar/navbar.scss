@@ -1,7 +1,7 @@
 @import '../../styles/_variables.scss';
 @import '~bulma/sass/utilities/_all.sass';
 
-.navigation {
+.navbar {
   // padding: $navbar-padding-vertical $bodyPaddingX-hd;
   height: $navbar-height;
   border-bottom: 2px solid $black-bis;
@@ -10,6 +10,10 @@
   .navbar-logo {
     object-fit: contain;
     height: $navbar-height;
+  }
+
+  .navbar-burger {
+    color: black;
   }
 
   button {

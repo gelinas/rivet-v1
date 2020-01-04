@@ -1,4 +1,5 @@
 import React, { useEffect} from 'react';
+import {Link} from "react-router-dom";
 
 // redux
 import { connect } from 'react-redux';
@@ -36,7 +37,9 @@ function ProfileList(props) {
 
         {profileState.profileList.map(profile => (
           <div key={profile.id} className='column is-narrow'>
-            <ProfileCard profile={profile} />
+            <Link className="link" to={{pathname: `profile/${profile.id}`}} >      
+              <ProfileCard profile={profile} />
+            </Link>
           </div>
         ))}
 

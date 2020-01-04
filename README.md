@@ -1,8 +1,19 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Rivet Employee Directory Front End
+
+A single page web application for viewing, adding, and updating employee information in the Rivet Employee Directory.
+
+## Architecture Overview
+
+The frontend codebase is built with React using Redux and the reducer pattern for state management. Development builds give you access to Redux logging and development tools for tracking the dispatching and resolution of actions.
+
+The frontend is styled with the [Bulma](https://bulma.io/) CSS framework and animated with [React-Spring](https://www.react-spring.io/) animation library to minimize bundle size and maximize developer options for future styling decisions.
+
+Form state for adding and editing profiles is managed by the [Formik](https://formik.com/) library and validated with [Yup](https://github.com/jquense/yup).
+
 
 ## Available Scripts
 
-In the project directory, you can run:
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and uses their utilities for building development and production deployments. In the project directory, you can run:
 
 ### `yarn start`
 
@@ -40,29 +51,3 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

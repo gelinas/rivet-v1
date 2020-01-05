@@ -26,6 +26,7 @@ export const getProfileList = () => dispatch => {
       dispatch({ type: PROFILE_FAIL, payload: err })
     });
 };
+
 export const getProfile = (id) => dispatch => {
   dispatch({ type: GET_PROFILE_START });
   axiosWithAuth()
@@ -50,6 +51,7 @@ export const postProfile = (newProfile) => dispatch => {
     });
 };
 
+// The id attribute must be on the editedProfile object submitted
 export const updateProfile = (editedProfile) => dispatch => {
   dispatch({ type: UPDATE_PROFILE_START, payload: editedProfile });
   axiosWithAuth()

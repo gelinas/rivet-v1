@@ -18,7 +18,7 @@ function EditProfile(props) {
   // pull requested id out of url
   const id = props.match.params.id;
 
-  // add profile id key-value pair to updateProfile function
+  // add profile id attribute to profile object submitted from form
   const editProfile = (editedProfile) => {
     updateProfile({
       ...editedProfile,

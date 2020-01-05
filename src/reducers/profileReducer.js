@@ -1,5 +1,7 @@
 import * as a from '../actions/profileActions'
 
+// profile reducer holds the latest profile list, profile data, and error message in state
+
 const initialState = {
     profileList: [],
     profile: {},

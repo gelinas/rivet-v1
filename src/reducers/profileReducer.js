@@ -1,6 +1,11 @@
 import * as a from '../actions/profileActions'
 
-// profile reducer holds the latest profile list, profile data, and error message in state
+/*
+profileReducer holds the most recent profileList, profile, and error message in state
+
+isFetching, isPosting, isSuccessful, and isError booleans are used to render loading spinners,
+disable forms during submission, and display error message modals as required.
+*/
 
 const initialState = {
     profileList: [],
@@ -82,7 +87,7 @@ export const profileReducer = (state = initialState, action) => {
                 isPosting: false,
                 isSuccessful: false,
                 isError: true,
-                error: JSON.stringify(action.payload)
+                error: action.payload.message
             }
         default:
             return state;

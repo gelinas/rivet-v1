@@ -3,7 +3,11 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from 'yup';
 import { profileSchema } from './validationSchema';
 
+// components
+import ErrorModal from '../modals/ErrorModal';
+
 // styles
+import Loader from 'react-loader-spinner'
 import './forms.scss';
 
 // Profile Form use Formik to handle form state
@@ -14,15 +18,19 @@ export default function ProfileForm (props) {
   // deconstruct parameters for form from props
   // formType is "edit" or "add"
   // submitAction is "postProfile" or "editProfile"
+  // profileState contains profile, isPosting, isError, and error attributes from state
+  const { formType, submitAction, profileState } = props;
+
   // profile are initalValues for form for edits or failed submissions
-  const { formType, submitAction, profile } = props;
+
+  const { profile, isPosting, isError, error } = profileState;
 
   return (
     <>
 
     <Formik
       initialValues={
-        profile ?
+        (formType === "edit") ?
           { 
             first_name: profile.first_name || "", 
             last_name: profile.last_name || "", 
@@ -51,7 +59,7 @@ export default function ProfileForm (props) {
       }
 
       // validation schema for form
-      validationSchema={yup.object().shape(profileSchema)}
+      // validationSchema={yup.object().shape(profileSchema)}
 
       // submitAction (update or post) is deconstructed from props
       onSubmit={(values, actions) => {
@@ -264,14 +272,32 @@ export default function ProfileForm (props) {
           </div>
 
           {/* Submit button text is determined by type of form (add or update) */}
+          {/* Submit button text is replaced with spinner during Posting */}
+
           <div className="field is-horizontal error_margin">
             <div className="field-label" />
             <div className="field-body">
               <div className="field">
                 <div className="control">
-                  <button className="button is-link" type="submit">
-                    {formType === "edit" ? "Update Profile" : "Create Profile"}
-                  </button>
+                { isPosting ?
+                  // if true, show disabled button with loading spinner
+                  (
+                    <button className="button is-link" type="submit" disabled>
+                      <Loader 
+                        type="Bars" 
+                        color="#dbdbdb" 
+                        height={15} 
+                        width={45} 
+                      />
+                    </button>
+                  ) :
+                  // if false, show submit button
+                  (
+                    <button className="button is-link" type="submit">
+                      {formType === "edit" ? "Update Profile" : "Create Profile"}
+                    </button>
+                  )
+                }
                 </div>
               </div>
             </div>
@@ -280,11 +306,9 @@ export default function ProfileForm (props) {
         </Form> 
       )}
     </Formik>
-      
-    {props.isError && 
-    // if true, render an error
-      ( <p>{props.error}</p>)
-    }
+    
+    {/* Displayed error if returned from submission */}
+    {isError && <ErrorModal error={error} />}
     </>
   )
 }

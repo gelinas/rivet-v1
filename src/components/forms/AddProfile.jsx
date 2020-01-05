@@ -17,7 +17,11 @@ function AddProfile (props) {
       {/* redirects backs to profile list after profile posts */}
       {profileState.isSuccessful ? <Redirect push to="/profiles" /> : null}
 
-      <ProfileForm formType="add" submitAction={postProfile} />
+      <ProfileForm 
+        formType="add" 
+        submitAction={postProfile} 
+        profileState={profileState} 
+      />
     </>
   )
 }

@@ -44,9 +44,6 @@ function EditProfile(props) {
     )
   }
 
-  // deconstruct profile
-  const { profile } = profileState
-
   return (
     <>
       {/* redirects backs to profile list after profile posts */}
@@ -55,7 +52,7 @@ function EditProfile(props) {
       <ProfileForm 
         formType="edit" 
         submitAction={editProfile} 
-        profile={profile} 
+        profileState={profileState} 
       />
     </>
   )

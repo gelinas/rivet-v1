@@ -11,6 +11,7 @@ export default function Navbar() {
 
   // toggle the display of the mobile nav-menu 
   const [displayNav, setDisplayNav] = useState(false);
+
   const navClickHandler = () => {
       if (displayNav === false) {
         menuEl.current.classList.add('is-active');
@@ -54,7 +55,7 @@ export default function Navbar() {
             <Link
               className='color_shark has-text-weight-bold is-size-5'
               to="/profiles"
-              onClick={() => navClickHandler(false)}
+              onClick={() => navClickHandler()}
             >
               <div className="nav_link has-text-right-mobile">
                 Profile List
@@ -65,7 +66,7 @@ export default function Navbar() {
             <Link 
               className='color_shark has-text-weight-bold is-size-5'
               to="/newprofile"
-              onClick={() => navClickHandler(false)}
+              onClick={() => navClickHandler()}
             >
               <div className="nav_link has-text-right-mobile">
                 Add Employee

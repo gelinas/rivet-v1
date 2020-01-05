@@ -1,0 +1,7 @@
+@import '../../styles/_variables.scss';
+@import '~bulma/sass/utilities/_all.sass';
+
+.center_button {
+  width: 100%;
+  @include flex-style(row, nowrap, center, center);
+}

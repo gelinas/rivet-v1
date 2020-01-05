@@ -50,7 +50,7 @@ export default function Navbar() {
       {/* menu displayed on far right in desktop, and hidden dropdown on mobile */}
       <div ref={menuEl} className='navbar-menu'>
         <div className='navbar-end'>
-          <div class="navbar-item">
+          <div className="navbar-item">
             <Link 
               as="button"
               className='color_shark has-text-weight-bold is-size-5'
@@ -60,7 +60,7 @@ export default function Navbar() {
               Profile List
             </Link>
           </div>
-          <div class="navbar-item">
+          <div className="navbar-item">
             <Link 
               as="button"
               className='color_shark has-text-weight-bold is-size-5'

@@ -24,19 +24,17 @@ function ProfileView(props) {
   }, [profileState.isSuccessful, getProfile, id]);
   
   // render loading spinner during inital fetching
-  useEffect(() => {
-    if (profileState.isFetching) {
-      return ( 
-        <Loader 
-          className="center_spinner"
-          type="Bars" 
-          color="#032245" 
-          height={80} 
-          width={80} 
-        />
-      )
-    }
-  },[]);
+  if (profileState.isFetchingProfile) {
+    return ( 
+      <Loader 
+        className="center_spinner"
+        type="Bars" 
+        color="#032245" 
+        height={80} 
+        width={80} 
+      />
+    )
+  }
 
   // deconstruct profile
   const { profile } = profileState

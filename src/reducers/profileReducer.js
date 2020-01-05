@@ -3,7 +3,8 @@ import * as a from '../actions/profileActions'
 const initialState = {
     profileList: [],
     profile: {},
-    isFetching: false,
+    isFetchingList: false,
+    isFetchingProfile: false,
     isPosting: false,
     isSuccessful: false,
     isError: false,
@@ -15,7 +16,7 @@ export const profileReducer = (state = initialState, action) => {
         case a.GET_PROFILE_LIST_START:
             return {
                 ...state,
-                isFetching: true,
+                isFetchingList: true,
                 isSuccessful: false,
                 isError: false,
                 error: ''
@@ -24,14 +25,14 @@ export const profileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 profileList: action.payload,
-                isFetching: false,
+                isFetchingList: false,
                 isError: false,
                 error: ''
             }
         case a.GET_PROFILE_START:
             return {
                 ...state,
-                isFetching: true,
+                isFetchingProfile: true,
                 isSuccessful: false,
                 isError: false,
                 error: ''
@@ -40,7 +41,7 @@ export const profileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 profile: action.payload,
-                isFetching: false,
+                isFetchingProfile: false,
                 isError: false,
                 error: ''
             }
@@ -74,6 +75,8 @@ export const profileReducer = (state = initialState, action) => {
         case a.PROFILE_FAIL:
             return {
                 ...state,
+                isFetchingList: false,
+                isFetchingProfile: false,
                 isPosting: false,
                 isSuccessful: false,
                 isError: true,

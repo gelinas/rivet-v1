@@ -21,20 +21,18 @@ function ProfileList(props) {
     getProfileList()
   }, [profileState.isSuccessful, getProfileList]);
   
-  // render loading spinner during fetching
-  useEffect(() => {
-    if (profileState.isFetching) {
-      return ( 
-        <Loader 
-          className="center_spinner"
-          type="Bars" 
-          color="#032245" 
-          height={80} 
-          width={80} 
-        />
-      )
-    }
-  },[]);
+  // render loading spinner during inital fetching
+  if (profileState.isFetchingList) {
+    return ( 
+      <Loader 
+        className="center_spinner"
+        type="Bars" 
+        color="#032245" 
+        height={80} 
+        width={80} 
+      />
+    )
+  }
   
   // render profile list once fetching is successful
   return (

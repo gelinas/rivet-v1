@@ -63,7 +63,10 @@ export default function ProfileForm (props) {
       {({ touched, errors, isSubmitting, setFieldValue }) => (
 
         <Form className="form_container">
-
+          <h4 className="has-text-weight-bold has-text-centered">
+            {formType === "edit" ? "Update Profile" : "Create Profile"}
+          </h4>
+          <br />
           {/* Name entry fields, two fields total */}
           <div className="field is-horizontal">
             <div className="field-label">

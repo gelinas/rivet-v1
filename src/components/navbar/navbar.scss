@@ -15,10 +15,8 @@
     color: black;
   }
 
-  button {
-    border: 0;
-    border-radius: $radius;
-    background: none;
-    position: relative;
+  // class allows clickable link to span entire width of screen on mobile menu
+  .nav_link {
+    width: 100%;
   }
 }

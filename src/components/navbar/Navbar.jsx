@@ -51,23 +51,25 @@ export default function Navbar() {
       <div ref={menuEl} className='navbar-menu'>
         <div className='navbar-end'>
           <div className="navbar-item">
-            <Link 
-              as="button"
+            <Link
               className='color_shark has-text-weight-bold is-size-5'
               to="/profiles"
               onClick={() => navClickHandler(false)}
             >
-              Profile List
+              <div className="nav_link has-text-right-mobile">
+                Profile List
+              </div>
             </Link>
           </div>
           <div className="navbar-item">
             <Link 
-              as="button"
               className='color_shark has-text-weight-bold is-size-5'
               to="/newprofile"
               onClick={() => navClickHandler(false)}
             >
-              Add Employee
+              <div className="nav_link has-text-right-mobile">
+                Add Employee
+              </div>
             </Link>
           </div>
         </div>

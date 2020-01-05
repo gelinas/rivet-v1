@@ -29,7 +29,7 @@ function EditProfile(props) {
   // fetch target profile
   useEffect(() => {
     getProfile(id)
-  }, [profileState.isSuccessful, getProfile]);
+  }, [profileState.isSuccessful, getProfile, id]);
   
   // render loading spinner during fetching
   if (profileState.isFetching) {

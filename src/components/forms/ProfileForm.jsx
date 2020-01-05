@@ -1,25 +1,26 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as yup from 'yup';
+import { profileSchema } from './validationSchema';
 
 // styles
 import './forms.scss';
 
+// Profile Form use Formik to handle form state
+// Profile Form uses a Yup schema defined in `./validationSchema.js` for validation
+
 export default function ProfileForm (props) {
 
+  // deconstruct parameters for form from props
+  // formType is "edit" or "add"
+  // submitAction is "postProfile" or "editProfile"
+  // profile are initalValues for form for edits or failed submissions
   const { formType, submitAction, profile } = props;
-
-  let buttonText
-  if (formType === "edit") {
-    buttonText = "Update Profile"
-  } else {
-    buttonText = "Create Profile"
-  }
 
   return (
     <>
 
     <Formik
-      // form initializes existing values for edits or failed submissions
       initialValues={
         profile ?
           { 
@@ -50,15 +51,9 @@ export default function ProfileForm (props) {
       }
 
       // validation schema for form
-      validate={values => {
-        let errors = {};
-        if (values.first_name.length < 3) {
-          errors.first_name = "First name is required";
-        return errors
-        }
-      }}
+      validationSchema={yup.object().shape(profileSchema)}
 
-      // submitAction (update or post) is passed from parent
+      // submitAction (update or post) is deconstructed from props
       onSubmit={(values, actions) => {
         submitAction(values)
         actions.setSubmitting(false);
@@ -254,7 +249,7 @@ export default function ProfileForm (props) {
                   className="textarea"
                   component="textarea"
                   name="notes" 
-                  placeholder="Please enter any notes about the employee"
+                  placeholder="OPTIONAL - Please enter any notes about the employee"
                 />
                 <ErrorMessage
                   className="help is-danger error"
@@ -272,7 +267,7 @@ export default function ProfileForm (props) {
               <div className="field">
                 <div className="control">
                   <button className="button is-link" type="submit">
-                    {buttonText}
+                    {formType === "edit" ? "Update Profile" : "Create Profile"}
                   </button>
                 </div>
               </div>

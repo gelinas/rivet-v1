@@ -21,7 +21,7 @@ function ProfileView(props) {
   // reload profile whenever a mutation successfully posts
   useEffect(() => {
     getProfile(id)
-  }, [profileState.isSuccessful, getProfile]);
+  }, [profileState.isSuccessful, getProfile, id]);
   
   // render loading spinner during fetching
   if (profileState.isFetching) {
@@ -50,7 +50,7 @@ function ProfileView(props) {
         </div>
 
         {/* display notes specific to employee */}
-        <div className='column is-three-quarters profile_notes'>
+        <div className='column is-three-fifths-desktop is-three-quarters-tablet profile_notes'>
           <p className='is-size-6 is-size-7-mobile has-text-weight-bold'>
             Notes for {`${profile.first_name} ${profile.last_name}`}:&nbsp;
           </p>
@@ -60,7 +60,7 @@ function ProfileView(props) {
         </div>
 
         {/* edit employee profile */}
-        <div className='column is-narrow'>
+        <div className='column is-full profile_button'>
           <Link to={`/profile/${id}/update`}>
             <button className="button is-link" type="submit">
               Update Employee Profile

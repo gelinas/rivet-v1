@@ -50,22 +50,26 @@ export default function Navbar() {
       {/* menu displayed on far right in desktop, and hidden dropdown on mobile */}
       <div ref={menuEl} className='navbar-menu'>
         <div className='navbar-end'>
-          <Link className='navbar-item' to="/profiles">
-            <button
-              className='has-text-weight-bold is-size-5'
+          <div class="navbar-item">
+            <Link 
+              as="button"
+              className='color_shark has-text-weight-bold is-size-5'
+              to="/profiles"
               onClick={() => navClickHandler(false)}
             >
               Profile List
-            </button>
-          </Link>
-          <Link className='navbar-item' to="/newprofile">
-            <button
-              className='has-text-weight-bold is-size-5'
+            </Link>
+          </div>
+          <div class="navbar-item">
+            <Link 
+              as="button"
+              className='color_shark has-text-weight-bold is-size-5'
+              to="/newprofile"
               onClick={() => navClickHandler(false)}
             >
               Add Employee
-            </button>
-          </Link>
+            </Link>
+          </div>
         </div>
       </div>
     </nav>

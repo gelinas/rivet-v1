@@ -8,6 +8,7 @@ import { postProfile } from '../../actions/profileActions';
 // components
 import ProfileForm from './ProfileForm';
 
+
 function AddProfile (props) {
 
   const { postProfile, profileState } = props;

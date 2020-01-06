@@ -1,28 +1,66 @@
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
+
+//redux
+import { connect } from 'react-redux';
+import { clearErrors } from '../../actions/profileActions';
+
+// components
+import ErrorList from './ErrorList';
 
 // styles
 import './modals.scss';
 
-export default function ErrorModal (props) {
+
+// renders modal for any errors returned from server on POST requests
+
+function ErrorModal (props) {
+
+  const { errorResponse, clearErrors } = props;
 
   // create a ref for manipulating the bulma modal node
   const modalEl = useRef(null);
+  const cardEl = useRef(null);
+
 
   // close the display of the modal 
   const closeModal = () => {
     modalEl.current.classList.remove('is-active');
+    clearErrors();
   };
 
-  const { error } = props
+  // click handler for clicks outside of modal
+  const handleClickOutside = e => {
+    if (cardEl.current.contains(e.target)) {
+      // inside click
+      return;
+    }
+    // outside click
+    closeModal();
+  };
+
+  // create and clean up event listeners for clicks outside
+  useEffect(() => {
+    // add when mounted
+    document.addEventListener("mousedown", handleClickOutside);
+    // return function to be called when unmounted
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     // modal built with bulma classes, diplay toggled with `is-active` class
     <div ref={modalEl} className="modal is-active">
       <div className="modal-background" />
-      <div className="modal-card">
+      <div ref={cardEl} className="modal-card">
         
+        {/* Render error status and statusText if in response or standard message*/}
         <header className="modal-card-head has-text-centered">
-          <p className="modal-card-title">Sorry! There was an error.</p>
+          <p className="modal-card-title">
+            {errorResponse.status && errorResponse.statusText ?
+            `Error: HTTP Status ${errorResponse.status}, ${errorResponse.statusText}` :
+            `Sorry! There was an error`}
+          </p>
           <button 
             className="delete" 
             aria-label="close" 
@@ -30,8 +68,11 @@ export default function ErrorModal (props) {
           />
         </header>
 
+        {/* Render error list if included in response or standard message */}
         <section className="modal-card-body has-text-centered">
-          {error}
+          {errorResponse.data.errors ?
+          <ErrorList errors={errorResponse.data.errors} /> :
+          `There was an error processing your request. Please try again`}
         </section>
        
         <footer className="modal-card-foot">
@@ -44,8 +85,19 @@ export default function ErrorModal (props) {
             </button>
           </div>
         </footer>
-        
+
       </div>
     </div>
   )
 }
+
+const mapStateToProps = state => {
+  return {
+    errorResponse: state.profile.errorResponse
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { clearErrors }
+)(ErrorModal);

@@ -15,7 +15,7 @@ const initialState = {
     isPosting: false,
     isSuccessful: false,
     isError: false,
-    error: ''
+    errorResponse: {}
 }
 
 export const profileReducer = (state = initialState, action) => {
@@ -26,7 +26,7 @@ export const profileReducer = (state = initialState, action) => {
                 isFetchingList: true,
                 isSuccessful: false,
                 isError: false,
-                error: ''
+                errorResponse: {}
             }
         case a.GET_PROFILE_LIST_SUCCESS:
             return {
@@ -34,7 +34,7 @@ export const profileReducer = (state = initialState, action) => {
                 profileList: action.payload,
                 isFetchingList: false,
                 isError: false,
-                error: ''
+                errorResponse: {}
             }
         case a.GET_PROFILE_START:
             return {
@@ -42,7 +42,7 @@ export const profileReducer = (state = initialState, action) => {
                 isFetchingProfile: true,
                 isSuccessful: false,
                 isError: false,
-                error: ''
+                errorResponse: {}
             }
         case a.GET_PROFILE_SUCCESS:
             return {
@@ -50,7 +50,7 @@ export const profileReducer = (state = initialState, action) => {
                 profile: action.payload,
                 isFetchingProfile: false,
                 isError: false,
-                error: ''
+                errorResponse: {}
             }
         case a.POST_PROFILE_START:
             return {
@@ -59,7 +59,7 @@ export const profileReducer = (state = initialState, action) => {
                 isPosting: true,
                 isSuccessful: false,
                 isError: false,
-                error: ''
+                errorResponse: {}
             }
         case a.UPDATE_PROFILE_START:
             return {
@@ -68,7 +68,7 @@ export const profileReducer = (state = initialState, action) => {
                 isPosting: true,
                 isSuccessful: false,
                 isError: false,
-                error: ''
+                errorResponse: {}
             }
         case a.PROFILE_SUCCESS:
             return {
@@ -77,7 +77,7 @@ export const profileReducer = (state = initialState, action) => {
                 isPosting: false,
                 isSuccessful: true,
                 isError: false,
-                error: ''
+                errorResponse: {}
             }
         case a.PROFILE_FAIL:
             return {
@@ -87,7 +87,13 @@ export const profileReducer = (state = initialState, action) => {
                 isPosting: false,
                 isSuccessful: false,
                 isError: true,
-                error: action.payload.message
+                errorResponse: action.payload
+            }
+        case a.CLEAR_ERRORS:
+            return {
+                ...state,
+                isError: false,
+                errorResponse: {}
             }
         default:
             return state;

@@ -10,6 +10,7 @@ import ErrorModal from '../modals/ErrorModal';
 import Loader from 'react-loader-spinner'
 import './forms.scss';
 
+
 // Profile Form use Formik to handle form state
 // Profile Form uses a Yup schema defined in `./validationSchema.js` for validation
 
@@ -21,9 +22,8 @@ export default function ProfileForm (props) {
   // profileState contains profile, isPosting, isError, and error attributes from state
   const { formType, submitAction, profileState } = props;
 
-  // profile are initalValues for form for edits or failed submissions
-
-  const { profile, isPosting, isError, error } = profileState;
+  // deconstruct profileState for manipulation in form
+  const { profile, isPosting, isError } = profileState;
 
   return (
     <>
@@ -59,7 +59,7 @@ export default function ProfileForm (props) {
       }
 
       // validation schema for form
-      // validationSchema={yup.object().shape(profileSchema)}
+      validationSchema={yup.object().shape(profileSchema)}
 
       // submitAction (update or post) is deconstructed from props
       onSubmit={(values, actions) => {
@@ -308,7 +308,7 @@ export default function ProfileForm (props) {
     </Formik>
     
     {/* Displayed error if returned from submission */}
-    {isError && <ErrorModal error={error} />}
+    {isError && <ErrorModal />}
     </>
   )
 }

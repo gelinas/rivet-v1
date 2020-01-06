@@ -11,8 +11,9 @@ export const POST_PROFILE_START = "POST_PROFILE_START";
 export const UPDATE_PROFILE_START = "UPDATE_PROFILE_START";
 export const PROFILE_SUCCESS = "PROFILE_SUCCESS";
 
-// error generating action types
+// error processing action types
 export const PROFILE_FAIL = "PROFILE_FAIL";
+export const CLEAR_ERRORS = "CLEAR_ERRORS";
 
 // action creators
 export const getProfileList = () => dispatch => {
@@ -23,7 +24,7 @@ export const getProfileList = () => dispatch => {
       dispatch({ type: GET_PROFILE_LIST_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      dispatch({ type: PROFILE_FAIL, payload: err })
+      dispatch({ type: PROFILE_FAIL, payload: err.response })
     });
 };
 
@@ -35,7 +36,7 @@ export const getProfile = (id) => dispatch => {
       dispatch({ type: GET_PROFILE_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      dispatch({ type: PROFILE_FAIL, payload: err })
+      dispatch({ type: PROFILE_FAIL, payload: err.response })
     });
 };
 
@@ -47,7 +48,7 @@ export const postProfile = (newProfile) => dispatch => {
       dispatch({ type: PROFILE_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      dispatch({ type: PROFILE_FAIL, payload: err })
+      dispatch({ type: PROFILE_FAIL, payload: err.response })
     });
 };
 
@@ -60,6 +61,10 @@ export const updateProfile = (editedProfile) => dispatch => {
       dispatch({ type: PROFILE_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      dispatch({ type: PROFILE_FAIL, payload: err })
+      dispatch({ type: PROFILE_FAIL, payload: err.response })
     });
+};
+
+export const clearErrors = () => dispatch => {
+  dispatch({ type: CLEAR_ERRORS });
 };

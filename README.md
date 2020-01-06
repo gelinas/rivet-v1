@@ -1,10 +1,24 @@
 # Rivet Employee Directory Front End
 
-A single page web application for viewing, adding, and updating employee information in the Rivet Employee Directory.
+A single page web application for viewing, adding, and updating employee information in the Rivet Employee Directory. A deployed build can be [viewed here](https://rivet-v1.now.sh/).
 
 ## Architecture Overview
 
-The frontend codebase is built with React using Redux and the reducer pattern for state management. Development builds give you access to Redux logging and development tools for tracking the dispatching and resolution of actions.
+The frontend codebase is built with React using Redux and the reducer pattern for state management. Development and production builds give you access to Redux logging and development tools for tracking the dispatching and resolution of actions.
+
+### Forms
+
+Form state for adding and editing profiles is managed by the [Formik](https://jardpalmer.com/formik/) library and validated with [Yup](https://github.com/jquense/yup).
+
+### API Consumption
+
+Asychronous calls to the employee directory API are handled with action creators defined in `/src/actions/profileActions` using an instance of `axios` defined in `/utils/axiosWithAuth` that adds the necessary authorization headers and base URL to all requests.
+
+### Error Handling
+
+If there is an error response from the server, it will be rendered in an `ErrorModal` component with the HTTP status, status text, and error message if available. 
+
+The profile form validation schema should prevent all form submission input errors, which makes it difficult to test the `ErrorModal`. The form validation for `email` is therefore currently disabled, so you can test `ErrorModal` by omitting an email address when submitting a profile form. 
 
 ### Styles
 
@@ -12,16 +26,17 @@ The frontend is styled with the [Bulma](https://bulma.io/) CSS framework and ani
 
 Bulma is compiled with a node-sass developer dependency to allow the customization of theme variables and the injection of custom classes. 
 
-Variables are defined in the `/src/styles` directory. Global classes or styles are defined in `/src/App.scss`. 
+Theme variables are defined in the `/src/styles` directory. Global classes or styles are defined in `/src/App.scss`. 
 
 Component specific files are contained within a `.scss` file in their respective component directory
 
 Hyphenated classes such as `is-size-6` in the React components are bulma native CSS classes and are documented in the [Bulma Documentation](https://bulma.io/documentation/). Underscored classes such as `spinner_center` are custom CSS classes built for this application.
 
-### Forms
+## Testing
 
-Form state for adding and editing profiles is managed by the [Formik](https://formik.com/) library and validated with [Yup](https://github.com/jquense/yup).
+Jest is use for snapshot, unit, and integration tests.
 
+The [Testing-Library/React library](https://testing-library.com/docs/react-testing-library/intro) is used to help test React components. It includes many utilities that simplify setting up and testing React components. `@testing-library/jest-dom` provides additional assertion methods. `@testing-library/user-event` has utilities for simulating user events such as clicking on a button.
 
 ## Available Scripts
 

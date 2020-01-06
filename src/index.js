@@ -30,8 +30,8 @@ const rootElement = document.getElementById('root');
 ReactDOM.render(
     <Provider store={store}>
       <Router>
-          <ScrollToTop />
-          <App />
+        <ScrollToTop />
+        <App />
       </Router>
     </Provider>, 
     rootElement);

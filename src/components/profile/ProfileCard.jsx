@@ -9,7 +9,11 @@ import './profile.scss'
 export default function ProfileCard(props) {
   const { profile } = props
 
-  let formattedPhoneNumber = formatPhoneNumber(profile.phone.replace(/\D/g,''))
+  // ensure profile.phone is defined before performing functions on it
+  let formattedPhoneNumber 
+  if (profile.phone) {
+    formattedPhoneNumber = formatPhoneNumber(profile.phone.replace(/\D/g,''))
+  }
 
   return (
     <div className='columns is-centered is-mobile'>

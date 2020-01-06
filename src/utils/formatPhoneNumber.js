@@ -4,7 +4,6 @@ export function formatPhoneNumber(tenDigitString) {
   let regexObj = /^(?:\(?([0-9]{3})\)?[-. ]?)?([0-9]{3})[-. ]?([0-9]{4})$/;
   if (regexObj.test(tenDigitString)) {
       let parts = tenDigitString.match(regexObj);
-      console.log(parts)
       let hyphenatedPhoneNumber = "";
       hyphenatedPhoneNumber += parts[1] + "-" +  parts[2] + "-" + parts[3];
       return hyphenatedPhoneNumber;

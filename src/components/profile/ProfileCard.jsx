@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { formatPhoneNumber } from '../../utils/formatPhoneNumber';
 
 // styles
 import './profile.scss'
@@ -7,6 +8,8 @@ import './profile.scss'
 
 export default function ProfileCard(props) {
   const { profile } = props
+
+  let formattedPhoneNumber = formatPhoneNumber(profile.phone.replace(/\D/g,''))
 
   return (
     <div className='columns is-centered is-mobile'>
@@ -28,7 +31,7 @@ export default function ProfileCard(props) {
         <p className='is-size-6 is-size-7-mobile'>
           Phone:&nbsp;
           <span className='color_shark'>
-            {profile.phone}
+            {formattedPhoneNumber}
           </span>
         </p>
         <br />

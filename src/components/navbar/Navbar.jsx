@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 //styles
@@ -6,21 +6,49 @@ import './navbar.scss'
 
 export default function Navbar() {
 
-  // create a ref for manipulating the bulma nav-menu node
-  const menuEl = useRef(null);
-
-  // toggle the display of the mobile nav-menu 
+  // state for mobile navigation menu display
   const [displayNav, setDisplayNav] = useState(false);
 
-  const navClickHandler = () => {
-      if (displayNav === false) {
-        menuEl.current.classList.add('is-active');
-        setDisplayNav(true);
-      } else {
-        menuEl.current.classList.remove('is-active');
-        setDisplayNav(false);
-      }
+  // create a ref for manipulating the bulma nav-menu node
+  const menuEl = useRef(null);
+  const burgerEl = useRef(null);
+
+  // open the display of the menu in mobile 
+  const openMenu = () => {
+    menuEl.current.classList.add('is-active');
+    setDisplayNav(true);
   };
+
+  // close the display of the modal 
+  const closeMenu = () => {
+    menuEl.current.classList.remove('is-active');
+    setDisplayNav(false);
+  };
+
+  // menu hamburger toggles the display of the mobile nav-menu 
+  const burgerClickHandler = () => {
+      displayNav ? closeMenu() : openMenu() 
+  };
+
+  // click handler for clicks outside of menu to close menu
+  const handleClickOutside = e => {
+    if (menuEl.current.contains(e.target) | burgerEl.current.contains(e.target)) {
+      // inside click
+      return;
+    }
+    // outside click
+    closeMenu();
+  };
+
+  // create and clean up event listeners for clicks outside
+  useEffect(() => {
+    // add event listener when mounted
+    document.addEventListener("mousedown", handleClickOutside);
+    // return function to clean up event listener when unmounted
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav
@@ -37,9 +65,10 @@ export default function Navbar() {
 
         {/* display navbar hamburger menu on mobile only */}
         <div 
+          ref={burgerEl}
           className="navbar-burger"
           aria-label="menu" 
-          onClick={() => navClickHandler()}
+          onClick={() => burgerClickHandler()}
         >
           <span></span>
           <span></span>
@@ -55,7 +84,7 @@ export default function Navbar() {
             <Link
               className='color_shark has-text-weight-bold is-size-5'
               to="/profiles"
-              onClick={() => navClickHandler()}
+              onClick={() => closeMenu()}
             >
               <div className="nav_link has-text-right-mobile">
                 Profile List
@@ -66,7 +95,7 @@ export default function Navbar() {
             <Link 
               className='color_shark has-text-weight-bold is-size-5'
               to="/newprofile"
-              onClick={() => navClickHandler()}
+              onClick={() => closeMenu()}
             >
               <div className="nav_link has-text-right-mobile">
                 Add Employee

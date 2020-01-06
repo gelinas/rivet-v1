@@ -34,9 +34,9 @@ Hyphenated classes such as `is-size-6` in the React components are bulma native 
 
 ## Testing
 
-Jest is use for snapshot, unit, and integration tests.
+[Jest](https://jestjs.io/) is use for snapshot, unit, and integration tests. The [Testing-Library/React library](https://testing-library.com/docs/react-testing-library/intro) is used to help test React components. It includes many utilities that simplify setting up and testing React components. `@testing-library/jest-dom` provides additional assertion methods. `@testing-library/user-event` has utilities for simulating user events such as clicking on a button.
 
-The [Testing-Library/React library](https://testing-library.com/docs/react-testing-library/intro) is used to help test React components. It includes many utilities that simplify setting up and testing React components. `@testing-library/jest-dom` provides additional assertion methods. `@testing-library/user-event` has utilities for simulating user events such as clicking on a button.
+The `@testing-library/react` library is re-exported from `/utils/testUtils.js` with a custom render method that wraps tested components in the redux store and react-router providers.
 
 ## Available Scripts
 

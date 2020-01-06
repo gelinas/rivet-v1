@@ -16,6 +16,11 @@ import ErrorModal from './components/modals/ErrorModal';
 import './App.scss';
 import { useTransition, animated } from 'react-spring'
 
+// App contains three components that must exist at the top of the application scope
+// 1. the fixed navbar component <Navbar />
+// 2. the animated "transition_box" div that dynamically renders route transitions
+// 3. the modal component <ErrorModal /> that takes over the screen upon server errors
+
 function App(props) {
 
   // destructure `isError` out of props for error modal display

@@ -11,11 +11,6 @@ import { act } from 'react-dom/test-utils'
 
 describe('Tests for Navbar', () => {
 
-  beforeEach(() => {
-    // reset mock functions before each test
-    jest.clearAllMocks()
-  })
-
   test('should match snapshot', () => {
     const tree = render(
       <Navbar />
@@ -66,7 +61,7 @@ describe('Tests for Navbar', () => {
     expect(navMenu).not.toHaveClass("is-active");
   })
 
-  test('should remove class is-active to hide mobile menu when user clicks on burger second time', () => {
+  test('should remove class is-active to hide mobile menu when user clicks oustide of open menu', () => {
     
     const { getByTestId } = render(<Navbar />);
 

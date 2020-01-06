@@ -13,7 +13,7 @@ import ProfileCard from './ProfileCard'
 import Loader from 'react-loader-spinner'
 import './profile.scss'
 
-// ProfileList displays a mobile-responsive flexbox grid of all employees
+// ProfileList displays a mobile-responsive flexbox grid of all employees sorted by last name
 
 function ProfileList(props) {
   const { getProfileList, profileState } = props;

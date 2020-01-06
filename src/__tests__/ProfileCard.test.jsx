@@ -32,7 +32,7 @@ describe('Tests for ProfileCard', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  test('Should display correct data', () => {
+  test('should display correct data', () => {
     const {getByText} = render(
       <ProfileCard profile={data} />
     )

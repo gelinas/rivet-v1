@@ -12,6 +12,8 @@ import ProfileCard from './ProfileCard'
 import Loader from 'react-loader-spinner'
 import './profile.scss'
 
+// ProfileView displays a single ProfileCard with it's notes
+
 function ProfileView(props) {
   const { getProfile, profileState } = props;
 

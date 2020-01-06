@@ -3,6 +3,7 @@ import React from 'react'
 // styles
 import './profile.scss'
 
+// ProfileCard is a flexbox container of employee information used for the profile list and indiviudal profile views
 
 export default function ProfileCard(props) {
   const { profile } = props

@@ -19,13 +19,13 @@ export default function Navbar() {
     setDisplayNav(true);
   };
 
-  // close the display of the modal 
+  // close the display of the menu in mobile 
   const closeMenu = () => {
     menuEl.current.classList.remove('is-active');
     setDisplayNav(false);
   };
 
-  // menu hamburger toggles the display of the mobile nav-menu 
+  // clicking the menu hamburger toggles the display of the mobile nav-menu 
   const burgerClickHandler = () => {
       displayNav ? closeMenu() : openMenu() 
   };

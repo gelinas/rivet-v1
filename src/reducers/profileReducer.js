@@ -3,7 +3,7 @@ import * as a from '../actions/profileActions'
 /*
 profileReducer holds the most recent profileList, profile, and error message in state
 
-isFetching, isPosting, isSuccessful, and isError booleans are used to render loading spinners,
+isFetchingList, isFetchingProfile, isPosting, isSuccessful, and isError booleans are used to render loading spinners,
 disable forms during submission, and display error message modals as required.
 */
 

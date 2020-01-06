@@ -1,5 +1,8 @@
 import * as yup from 'yup';
 
+// the `required` method for `email` is disabled to allow Andy to test `ErrorModal` by inducing a server error for empty email field
+// if the schema is written properly, it should be impossible to induce an error otherwise!
+
 export const profileSchema = {
   first_name: yup.string()
     .required("Please enter your first name")

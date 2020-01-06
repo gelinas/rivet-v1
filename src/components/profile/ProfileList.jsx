@@ -1,5 +1,6 @@
 import React, { useEffect} from 'react';
 import {Link} from "react-router-dom";
+import { objectSort } from '../../utils/objectSort';
 
 // redux
 import { connect } from 'react-redux';
@@ -12,6 +13,7 @@ import ProfileCard from './ProfileCard'
 import Loader from 'react-loader-spinner'
 import './profile.scss'
 
+// ProfileList displays a mobile-responsive flexbox grid of all employees
 
 function ProfileList(props) {
   const { getProfileList, profileState } = props;
@@ -41,7 +43,7 @@ function ProfileList(props) {
 
         {/* map over profileList to render profile cards */}
 
-        {profileState.profileList.map(profile => (
+        {profileState.profileList.sort(objectSort("last_name")).map(profile => (
           <div key={profile.id} className='column is-narrow'>
             <Link className="link" to={{pathname: `profile/${profile.id}`}} >      
               <ProfileCard profile={profile} />

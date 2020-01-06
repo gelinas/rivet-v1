@@ -54,7 +54,7 @@ export default function Navbar() {
     <nav
       className='navbar has-background-white is-fixed-top'
     >
-      <div className='navbar-brand'>
+      <div className='navbar-brand' data-testid="nav-brand">
 
         {/* display navbar logo on mobile and desktop */}
         <img 
@@ -67,8 +67,9 @@ export default function Navbar() {
         <div 
           ref={burgerEl}
           className="navbar-burger"
-          aria-label="menu" 
-          onClick={() => burgerClickHandler()}
+          aria-label="menu"
+          data-testid="burger-icon"
+          onClick={burgerClickHandler}
         >
           <span></span>
           <span></span>
@@ -78,13 +79,13 @@ export default function Navbar() {
       </div>
 
       {/* menu displayed on far right in desktop, and hidden dropdown on mobile */}
-      <div ref={menuEl} className='navbar-menu'>
+      <div ref={menuEl} className='navbar-menu' data-testid="nav-menu">
         <div className='navbar-end'>
           <div className="navbar-item">
             <Link
               className='color_shark has-text-weight-bold is-size-5'
               to="/profiles"
-              onClick={() => closeMenu()}
+              onClick={closeMenu}
             >
               <div className="nav_link has-text-right-mobile">
                 Profile List
@@ -95,7 +96,7 @@ export default function Navbar() {
             <Link 
               className='color_shark has-text-weight-bold is-size-5'
               to="/newprofile"
-              onClick={() => closeMenu()}
+              onClick={closeMenu}
             >
               <div className="nav_link has-text-right-mobile">
                 Add Employee

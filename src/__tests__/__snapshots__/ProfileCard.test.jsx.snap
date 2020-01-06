@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for ProfileCard should match snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="columns is-centered is-mobile"
+      >
+        <img
+          alt="Louis Gelinas"
+          class="column is-narrow profile_image"
+          src="https://www.louisgelinas.com/static/media/louis-headshot.d09504cd.jpg"
+        />
+        <div
+          class="column is-narrow profile_details"
+        >
+          <p
+            class="is-size-5 is-size-6-mobile has-text-weight-bold"
+          >
+            Louis Gelinas
+          </p>
+          <p
+            class="is-size-6 is-size-7-mobile"
+          >
+            Email: 
+            <span
+              class="color_shark"
+            >
+              jlgelinas@gmail.com
+            </span>
+          </p>
+          <p
+            class="is-size-6 is-size-7-mobile"
+          >
+            Phone: 
+            <span
+              class="color_shark"
+            >
+              313-920-1944
+            </span>
+          </p>
+          <br />
+          <p
+            class="is-size-6 is-size-7-mobile"
+          >
+            Address: 
+          </p>
+          <p
+            class="is-size-6 is-size-7-mobile color_shark"
+          >
+            645 E Bethune
+          </p>
+          <p
+            class="is-size-6 is-size-7-mobile color_shark"
+          >
+            Detroit, MI 48202
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="columns is-centered is-mobile"
+    >
+      <img
+        alt="Louis Gelinas"
+        class="column is-narrow profile_image"
+        src="https://www.louisgelinas.com/static/media/louis-headshot.d09504cd.jpg"
+      />
+      <div
+        class="column is-narrow profile_details"
+      >
+        <p
+          class="is-size-5 is-size-6-mobile has-text-weight-bold"
+        >
+          Louis Gelinas
+        </p>
+        <p
+          class="is-size-6 is-size-7-mobile"
+        >
+          Email: 
+          <span
+            class="color_shark"
+          >
+            jlgelinas@gmail.com
+          </span>
+        </p>
+        <p
+          class="is-size-6 is-size-7-mobile"
+        >
+          Phone: 
+          <span
+            class="color_shark"
+          >
+            313-920-1944
+          </span>
+        </p>
+        <br />
+        <p
+          class="is-size-6 is-size-7-mobile"
+        >
+          Address: 
+        </p>
+        <p
+          class="is-size-6 is-size-7-mobile color_shark"
+        >
+          645 E Bethune
+        </p>
+        <p
+          class="is-size-6 is-size-7-mobile color_shark"
+        >
+          Detroit, MI 48202
+        </p>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

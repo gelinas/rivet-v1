@@ -3,8 +3,9 @@ import React from 'react'
 // styles
 import './profile.scss'
 
+
 export default function ProfileCard(props) {
-  const {profile} = props
+  const { profile } = props
 
   return (
     <div className='columns is-centered is-mobile'>

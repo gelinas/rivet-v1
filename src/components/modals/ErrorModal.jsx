@@ -11,7 +11,7 @@ import ErrorList from './ErrorList';
 import './modals.scss';
 
 
-// renders modal for any errors returned from server on POST requests
+// renders modal for any errors returned from server requests
 
 function ErrorModal (props) {
 

@@ -13,6 +13,8 @@ export const profileSchema = {
       /^\([0-9]{3}\)[0-9]{3}-[0-9]{4}$|^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$|^[2-9]{1}[0-9]{9}$/,
       "Format 10 digit, (XXX) XXX-XXXX, or XXX-XXX-XXXX"),
   email: yup.string()
+    // commented this out so server errors can be tested by omitting email address
+    // .required("Please enter a valid email address")
     .email("Please enter a valid email address")
     .max(255, "Email is too long"),
   address: yup.string()
@@ -26,6 +28,7 @@ export const profileSchema = {
     .length(2, "Please use two chracter abbreviation")
     .uppercase(),
   zip: yup.number()
+    .typeError("Please enter 5-digit zip code")
     .positive("Please enter 5-digit zip code")
     .required("Please enter 5-digit zip code")
     .min(10000, "Please enter 5-digit zip code")

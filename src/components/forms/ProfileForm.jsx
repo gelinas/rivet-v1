@@ -3,9 +3,6 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from 'yup';
 import { profileSchema } from './validationSchema';
 
-// components
-import ErrorModal from '../modals/ErrorModal';
-
 // styles
 import Loader from 'react-loader-spinner'
 import './forms.scss';
@@ -16,18 +13,16 @@ import './forms.scss';
 
 export default function ProfileForm (props) {
 
-  // deconstruct parameters for form from props
+  // destructure parameters for form from props
   // formType is "edit" or "add"
   // submitAction is "postProfile" or "editProfile"
   // profileState contains profile, isPosting, isError, and error attributes from state
   const { formType, submitAction, profileState } = props;
 
-  // deconstruct profileState for manipulation in form
-  const { profile, isPosting, isError } = profileState;
+  // destructure profileState attributes used in form
+  const { profile, isPosting } = profileState;
 
   return (
-    <>
-
     <Formik
       initialValues={
         (formType === "edit") ?
@@ -71,10 +66,13 @@ export default function ProfileForm (props) {
       {({ touched, errors, isSubmitting, setFieldValue }) => (
 
         <Form className="form_container">
+
+          {/* Form title based on formType */}
           <h4 className="has-text-weight-bold has-text-centered">
             {formType === "edit" ? "Update Profile" : "Create Profile"}
           </h4>
           <br />
+
           {/* Name entry fields, two fields total */}
           <div className="field is-horizontal">
             <div className="field-label">
@@ -272,7 +270,7 @@ export default function ProfileForm (props) {
           </div>
 
           {/* Submit button text is determined by type of form (add or update) */}
-          {/* Submit button text is replaced with spinner during Posting */}
+          {/* Submit button disabled and replaced with spinner during Posting */}
 
           <div className="field is-horizontal error_margin">
             <div className="field-label" />
@@ -306,9 +304,5 @@ export default function ProfileForm (props) {
         </Form> 
       )}
     </Formik>
-    
-    {/* Displayed error if returned from submission */}
-    {isError && <ErrorModal />}
-    </>
   )
 }

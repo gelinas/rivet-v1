@@ -17,7 +17,7 @@ function ErrorModal (props) {
 
   const { errorResponse, clearErrors } = props;
 
-  // create a ref for manipulating the bulma modal node
+  // create a ref for manipulating the modal nodes
   const modalEl = useRef(null);
   const cardEl = useRef(null);
 
@@ -40,53 +40,57 @@ function ErrorModal (props) {
 
   // create and clean up event listeners for clicks outside
   useEffect(() => {
-    // add when mounted
+    // add event listener when mounted
     document.addEventListener("mousedown", handleClickOutside);
-    // return function to be called when unmounted
+    // return function to clean up event listener when unmounted
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [handleClickOutside]);
 
   return (
     // modal built with bulma classes, diplay toggled with `is-active` class
     <div ref={modalEl} className="modal is-active">
       <div className="modal-background" />
-      <div ref={cardEl} className="modal-card">
-        
-        {/* Render error status and statusText if in response or standard message*/}
-        <header className="modal-card-head has-text-centered">
-          <p className="modal-card-title">
-            {errorResponse.status && errorResponse.statusText ?
-            `Error: HTTP Status ${errorResponse.status}, ${errorResponse.statusText}` :
-            `Sorry! There was an error`}
-          </p>
-          <button 
-            className="delete" 
-            aria-label="close" 
-            onClick={() => closeModal()}
-          />
-        </header>
+        {/* <div className="fit_viewport"> */}
+          <div ref={cardEl} className="modal-card">
+            
+            {/* Render error status and statusText if in response or standard message*/}
+            <header className="modal-card-head has-text-centered">
+              <p className="modal-card-title">
+                <span className="is-size-6-mobile">
+                  {errorResponse.status && errorResponse.statusText ?
+                  `HTTP Status ${errorResponse.status}, ${errorResponse.statusText}` :
+                  `Sorry! There was an error`}
+                </span>
+              </p>
+              <button 
+                className="delete" 
+                aria-label="close" 
+                onClick={() => closeModal()}
+              />
+            </header>
 
-        {/* Render error list if included in response or standard message */}
-        <section className="modal-card-body has-text-centered">
-          {errorResponse.data.errors ?
-          <ErrorList errors={errorResponse.data.errors} /> :
-          `There was an error processing your request. Please try again`}
-        </section>
-       
-        <footer className="modal-card-foot">
-          <div className="center_button">
-            <button 
-              className="button is-link"
-              onClick={() => closeModal()}
-            >
-              Return to Form
-            </button>
-          </div>
-        </footer>
+            {/* Render error list if included in response or standard message */}
+            <section className="modal-card-body has-text-centered">
+              {errorResponse.data.errors ?
+              <ErrorList errors={errorResponse.data.errors} /> :
+              `There was an error processing your request. Please try again`}
+            </section>
+          
+            <footer className="modal-card-foot">
+              <div className="center_button">
+                <button 
+                  className="button is-link"
+                  onClick={() => closeModal()}
+                >
+                  Return to Form
+                </button>
+              </div>
+            </footer>
 
-      </div>
+          </div> 
+        {/* </div> */}
     </div>
   )
 }

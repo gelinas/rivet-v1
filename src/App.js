@@ -1,18 +1,25 @@
 import React from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 
+// redux 
+import { connect } from 'react-redux';
+
 // components
-import Navbar from './components/navbar/Navbar'
-import ProfileList from './components/profile/ProfileList'
-import ProfileView from './components/profile/ProfileView'
-import AddProfile from './components/forms/AddProfile'
-import EditProfile from './components/forms/EditProfile'
+import Navbar from './components/navbar/Navbar';
+import ProfileList from './components/profile/ProfileList';
+import ProfileView from './components/profile/ProfileView';
+import AddProfile from './components/forms/AddProfile';
+import EditProfile from './components/forms/EditProfile';
+import ErrorModal from './components/modals/ErrorModal';
 
 // styles
 import './App.scss';
 import { useTransition, animated } from 'react-spring'
 
-export default function App() {
+function App(props) {
+
+  // destructure `isError` out of props for error modal display
+  const { isError } = props;
 
   // create fade-in and slide-out transitions for all reacter-router paths
   const location = useLocation()
@@ -38,6 +45,17 @@ export default function App() {
           </Switch>
         </animated.div>
       ))}
+
+      {/* Display error in modal if server errors are returned */}
+      {isError && <ErrorModal />}
     </div>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    isError: state.profile.isError
+  };
+};
+
+export default connect(mapStateToProps)(App);
